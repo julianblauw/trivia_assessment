@@ -8,6 +8,7 @@ class TriviaAssessmentApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
