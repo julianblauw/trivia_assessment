@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.*;
 
@@ -115,9 +116,13 @@ public class TriviaService {
                 triviaQuestion.type(),
                 triviaQuestion.difficulty(),
                 triviaQuestion.category(),
-                triviaQuestion.question(),
+                decode(triviaQuestion.question()),
                 triviaQuestion.correctAnswer(),
                 triviaQuestion.incorrectAnswers()
         );
+    }
+
+    private String decode(String text) {
+        return HtmlUtils.htmlUnescape(text);
     }
 }
