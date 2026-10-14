@@ -117,8 +117,8 @@ public class TriviaService {
                 triviaQuestion.difficulty(),
                 triviaQuestion.category(),
                 decode(triviaQuestion.question()),
-                triviaQuestion.correctAnswer(),
-                triviaQuestion.incorrectAnswers()
+                decode(triviaQuestion.correctAnswer()),
+                triviaQuestion.incorrectAnswers().stream().map(this::decode).toList()
         );
     }
 
